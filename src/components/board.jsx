@@ -20,6 +20,8 @@ export default function Board({ map, rows, cols }) {
   );
 }
 
+// TODO: make integration test to check numbeer of squares
+
 Board.propTypes = {
   map: PropTypes.array.isRequired,
   rows: PropTypes.number.isRequired,
