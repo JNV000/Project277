@@ -6,13 +6,13 @@ export default function Square({ room, id, handleClick, marker }) {
   // TODO: add ternary, if room is true make div white and add onClick function, else make dive black with no onClick function
 
   return (
-    <div
+    <button
       id={id}
       className={room ? "bg-white" : "bg-black"}
       onClick={handleClick}
     >
       {marker}
-    </div>
+    </button>
   );
 }
 
