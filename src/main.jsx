@@ -8,12 +8,18 @@ import {
 // import App from "./App";
 import "./index.css";
 import Root from "./routes/Root";
+import Register from "./routes/Register";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    children: [],
+    children: [
+      {
+        path: "register",
+        element: <Register />,
+      },
+    ],
   },
 ]);
 
