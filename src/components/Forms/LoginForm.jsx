@@ -1,4 +1,5 @@
 import Input from "./Input"; // see import.js in forms
+import { Link, Outlet } from "react-router-dom";
 
 const fields = [
   {
@@ -29,6 +30,12 @@ export default function Registration() {
           Login
         </button>
       </form>
+      <Link
+        to={`/register`}
+        className="button underline text-white hover:text-gray-500"
+      >
+        Create Account
+      </Link>
     </>
   );
 }

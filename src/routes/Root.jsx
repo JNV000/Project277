@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import LogoutBtn from "../components/Logout";
+import LoginForm from "../components/Forms/LoginForm";
 
 export default function Root() {
   // login/logout will be on left side, other components are children displayed on the wider left part of screen
@@ -13,6 +14,7 @@ export default function Root() {
           Login form goes here. After logging in/picking user logout button will
           go here instead.
         </p>
+        <LoginForm />
         <LogoutBtn />
       </div>
       <Outlet />
