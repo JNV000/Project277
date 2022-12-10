@@ -6,10 +6,10 @@ export default function LogoutBtn() {
 
   return (
     <>
-      <p className="my-8 text-center text-5xl">Name goes here</p>
+      <p className="my-8 text-xl">Name goes here</p>
       <button
         type="button"
-        className="rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+        className="rounded bg-blue-400 py-2 px-4 font-bold text-white hover:bg-blue-100"
         onClick={null}
       >
         Logout

@@ -5,18 +5,20 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
-import App from "./App";
+// import App from "./App";
 import "./index.css";
+import Root from "./routes/Root";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Root />,
     children: [],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
