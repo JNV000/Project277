@@ -26,9 +26,12 @@ const fields = [
   },
 ];
 
-export default function Registration() {
+export default function Registration({ onClick }) {
   return (
-    <form className="w-max mx-auto h-fit flex flex-col gap-y-4 border p-8 rounded-md my-4 mt-4">
+    <form
+      onSubmit={onClick}
+      className="w-max mx-auto h-fit flex flex-col gap-y-4 border p-8 rounded-md my-4 mt-4"
+    >
       {fields.map((field) => (
         <Input key={field.id} {...field} />
       ))}
@@ -43,4 +46,6 @@ export default function Registration() {
   );
 }
 
-Registration.propTypes = {};
+Registration.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
