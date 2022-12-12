@@ -12,6 +12,10 @@ import Register from "./routes/Register";
 import Game from "./routes/Game";
 import Error from "./routes/Error";
 import apiService from "./services/api.service";
+import useGame from "./hooks/useGame";
+
+// do I add my hook here?
+const { user, game, setUser, makeMove, resetGame } = useGame();
 
 // function that calls either login or logout
 
@@ -29,6 +33,7 @@ const login = async ({ request }) => {
   // console.log(user);
   // console.log(user.id);
   // TODO: Provide user data to hook reducer/useLogin
+  setUser(user); // test this
 
   // redirect to game with user id
   return redirect(`${user.id}/game`);
