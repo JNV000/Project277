@@ -12,9 +12,13 @@ export default function Root() {
         // pass the form into FormData
         const fd = new FormData(e.target);
         const newUser = Object.fromEntries(fd);
-
-        const results = await apiService.add(newUser);
-        console.log(results);
+        // const results = await apiService.add(newUser);
+        await apiService.add(newUser);
+        // clear the form
+        e.target.reset();
+        // tell user account was created
+        alert("Account created. Try logging in.");
+        // console.log(results);
       }}
     />
   );
