@@ -1,5 +1,5 @@
 import Input from "./Input"; // see import.js in forms
-import { Link, Outlet } from "react-router-dom";
+import { Form, Link, useSubmit } from "react-router-dom";
 
 const fields = [
   {
@@ -15,10 +15,18 @@ const fields = [
 ];
 
 export default function Registration() {
+  const submit = useSubmit();
   // link to registration page and about page below form
   return (
     <>
-      <form className="w-max mx-auto flex flex-col gap-y-4 border p-8 rounded-md my-4 mt-4">
+      <Form
+        className="w-max mx-auto flex flex-col gap-y-4 border p-8 rounded-md my-4 mt-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          submit(e.target, { method: "post" }); // submit must be done before submit to tranfer input
+          e.target.reset();
+        }}
+      >
         {fields.map((field) => (
           <Input key={field.id} {...field} />
         ))}
@@ -29,7 +37,7 @@ export default function Registration() {
         >
           Login
         </button>
-      </form>
+      </Form>
       <Link
         to={`/register`}
         className="button underline text-white hover:text-gray-500"
