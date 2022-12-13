@@ -4,13 +4,20 @@ import Square from "./square";
 // TODO: make dive to hold other divs, use props to create grid style based on number of rows and columns.
 
 export default function Board({ map, rows, cols }) {
-  // TODO: use Reducer to get click function to pass to square
+  /*
+  I cannot explain why but putting the string literal in the
+  but puttin the string literal directly into className causes
+  the grid to not work.
+  */
+  function makeBoardClass() {
+    const boardClass = `container grid w-auto grid-cols-${String(
+      cols
+    )} grid-rows-${String(rows)}`;
+    return boardClass;
+  }
+
   return (
-    <div
-      className={`container grid w-auto grid-cols-${String(
-        cols
-      )} grid-rows-${String(rows)}`}
-    >
+    <div className={makeBoardClass()}>
       {map.map((row, rIndex) =>
         row.map((crntRoom, cIndex) => (
           <Square
