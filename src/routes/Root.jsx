@@ -41,7 +41,11 @@ export default function Root() {
           Login form goes here. After logging in/picking user logout button will
           go here instead.
         </p>
-        {user ? <LogoutBtn /> : <LoginForm handleSubmit={loginAction} />}
+        {user ? (
+          <LogoutBtn first={user.fName} last={user.lName} />
+        ) : (
+          <LoginForm handleSubmit={loginAction} />
+        )}
       </div>
       <Outlet />
     </main>

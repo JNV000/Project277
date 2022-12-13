@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import useGame from "../hooks/useGame";
 
-export default function LogoutBtn() {
+export default function LogoutBtn({ first, last }) {
   // use either reducer or props to get userName
   // on click function to logout then remove user info from reducer
   const { clearUser } = useGame();
@@ -18,7 +18,7 @@ export default function LogoutBtn() {
 
   return (
     <>
-      <p className="my-8 text-xl">Name goes here</p>
+      <p className="my-8 text-xl">{`Welcome: ${first} ${last}`}</p>
       <button
         type="button"
         className="rounded bg-blue-400 py-2 px-4 font-bold text-white hover:bg-blue-100"
@@ -29,3 +29,8 @@ export default function LogoutBtn() {
     </>
   );
 }
+
+LogoutBtn.propTypes = {
+  first: PropTypes.string.isRequired,
+  last: PropTypes.string.isRequired,
+};
