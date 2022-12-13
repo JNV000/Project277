@@ -43,6 +43,13 @@ export default function reducer(state, action) {
         game: newGame,
       };
     }
+    case "user_logout": {
+      return {
+        // just ditch everyting
+        user: null,
+        game: null,
+      };
+    }
     default:
       throw new Error("Invalid action");
   }

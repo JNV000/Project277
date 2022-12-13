@@ -27,6 +27,10 @@ export default function useGame() {
     dispatch({ type: "new_game", game: gameData });
   };
 
+  const clearUser = () => {
+    dispatch({ type: "user_logout" });
+  };
+
   // removed declare winner
   return {
     user,
@@ -35,5 +39,6 @@ export default function useGame() {
     startGame,
     makeMove,
     resetGame,
+    clearUser,
   };
 }
