@@ -23,11 +23,16 @@ export default function useGame() {
     dispatch({ type: "reset_game" });
   };
 
+  const startGame = (gameData) => {
+    dispatch({ type: "new_game", game: gameData });
+  };
+
   // removed declare winner
   return {
     user,
     game,
     setUser,
+    startGame,
     makeMove,
     resetGame,
   };

@@ -6,7 +6,7 @@ import Board from "../components/game/board";
 
 export default function Game() {
   // state for game
-  const { user, game, setUser, makeMove, resetGame } = useGame();
+  const { user, game, startGame, makeMove, resetGame } = useGame();
   // if there is a game in the state load the board, else create one
   function createGame(e) {
     e.preventDefault();
@@ -14,12 +14,20 @@ export default function Game() {
     const fd = new FormData(e.target);
     const newGame = Object.fromEntries(fd);
     console.log(newGame);
-    // TODO: make reducer and hook method to make game
+    startGame(newGame);
   }
 
   return (
-    <div className="content-center pt-10">
-      <GameForm handleSubmit={createGame} />
+    <div className="content-center pt-3">
+      {game ? (
+        <Board
+          map={game.map}
+          rows={parseInt(game.rows)}
+          cols={parseInt(game.columns)}
+        />
+      ) : (
+        <GameForm handleSubmit={createGame} />
+      )}
     </div>
   );
 }

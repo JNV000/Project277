@@ -6,7 +6,7 @@ import Square from "./square";
 export default function Board({ map, rows, cols }) {
   // TODO: use Reducer to get click function to pass to square
   return (
-    <div>
+    <div className={`container grid w-96 grid-cols-${cols}`}>
       {map.map((row, rIndex) =>
         row.map((crntRoom, cIndex) => (
           <Square
@@ -20,7 +20,7 @@ export default function Board({ map, rows, cols }) {
   );
 }
 
-// TODO: make integration test to check numbeer of squares
+// TODO: make integration test to check number of squares
 
 Board.propTypes = {
   map: PropTypes.array.isRequired,

@@ -44,7 +44,6 @@ export default function Root() {
         {user ? <LogoutBtn /> : <LoginForm handleSubmit={loginAction} />}
       </div>
       <Outlet />
-      <p>Create account, game stuff, and about page will go here.</p>
     </main>
   );
 }
