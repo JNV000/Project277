@@ -35,12 +35,18 @@ export default function LoginForm({ handleSubmit }) {
         >
           Login
         </button>
+        <Link
+          to={`/register`}
+          className="button underline align-middle text-center text-white hover:text-gray-500"
+        >
+          Create Account
+        </Link>
       </Form>
       <Link
-        to={`/register`}
-        className="button underline text-white hover:text-gray-500"
+        to={`/about`}
+        className="button underline ml-4 text-white hover:text-gray-500"
       >
-        Create Account
+        About Page
       </Link>
     </>
   );

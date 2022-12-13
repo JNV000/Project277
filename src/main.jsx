@@ -12,6 +12,7 @@ import Register from "./routes/Register";
 import Game from "./routes/Game";
 import Error from "./routes/Error";
 import apiService from "./services/api.service";
+import About from "./routes/About";
 // import useGame from "./hooks/useGame";
 
 // function that calls either login or logout
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: ":id/game",
         element: <Game />,
+      },
+      {
+        path: ":about", // make make a second version that has :id
+        element: <About />,
       },
     ],
   },
