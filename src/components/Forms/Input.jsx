@@ -9,6 +9,8 @@ export default function Input({
   maxLen,
   placeholder,
   type,
+  maxVal,
+  minVal,
 }) {
   return (
     <>
@@ -20,6 +22,8 @@ export default function Input({
         minLength={minLen || 4}
         maxLength={maxLen || 25}
         name={id}
+        min={minVal}
+        max={maxVal}
         placeholder={label || capitalize(id)}
         required={isReq}
         type={type || "text"}
@@ -41,4 +45,6 @@ Input.propTypes = {
   maxLen: PropTypes.number,
   placeholder: PropTypes.string,
   type: PropTypes.string,
+  maxVal: PropTypes.number,
+  minVal: PropTypes.number,
 };

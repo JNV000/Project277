@@ -9,7 +9,7 @@ export default function Register() {
     // reducer/hook will be used to either Login or Logout Button
 
     <RegisterForm
-      onClick={async (e) => {
+      handleClick={async (e) => {
         e.preventDefault();
         // pass the form into FormData
         const fd = new FormData(e.target);
