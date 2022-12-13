@@ -1,5 +1,5 @@
 import Input from "./Input"; // see import.js in forms
-import PropTypes from "prop-Types";
+import PropTypes from "prop-types";
 
 // initial version taken from in-class work
 

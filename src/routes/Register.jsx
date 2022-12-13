@@ -1,13 +1,13 @@
 // import { Link, Outlet } from "react-router-dom";
-// import RegisterForm from "../components/forms/RegisterForm";
+import RegisterForm from "../components/forms/RegisterForm";
+import apiService from "../services/api.service";
 
 export default function Register() {
   // login/logout will be on left side, other components are children displayed on the wider left part of screen
   return (
-    <div>this works now?</div>
+    // <div>this works now?</div>
     // reducer/hook will be used to either Login or Logout Button
 
-    /*
     <RegisterForm
       onClick={async (e) => {
         e.preventDefault();
@@ -15,7 +15,7 @@ export default function Register() {
         const fd = new FormData(e.target);
         const newUser = Object.fromEntries(fd);
         // const results = await apiService.add(newUser);
-        // await apiService.add(newUser);
+        await apiService.add(newUser);
         // clear the form
         e.target.reset();
         // tell user account was created
@@ -23,6 +23,5 @@ export default function Register() {
         // console.log(results);
       }}
     />
-    */
   );
 }

@@ -14,14 +14,12 @@ import Error from "./routes/Error";
 import apiService from "./services/api.service";
 // import useGame from "./hooks/useGame";
 
-// do I add my hook here?
-// const { user, game, setUser, makeMove, resetGame } = useGame();
-
 // function that calls either login or logout
 
 // login function
 
 const login = async ({ request }) => {
+  // do I add my hook here?
   const fd = await request.formData();
 
   // get email and password
@@ -29,15 +27,16 @@ const login = async ({ request }) => {
   // console.log(input);
 
   // call apiService.login
-  const user = await apiService.getUser(input.email, input.password);
+  const loginUser = await apiService.getUser(input.email, input.password);
 
   // console.log(user);
   // console.log(user.id);
   // TODO: Provide user data to hook reducer/useLogin
-  // setUser(user); // test this
+  // setUser(loginUser); // test this
 
   // redirect to game with user id
-  return redirect(`${user.id}/game`);
+
+  return redirect(`${loginUser.id}/game`);
 };
 
 // logout function

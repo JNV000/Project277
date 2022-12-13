@@ -18,6 +18,7 @@ export default function reducer(state, action) {
         email: action.user.email,
         id: action.user.id,
       };
+      console.log(newUser);
       return {
         // everthing except the user should be null
         user: newUser,
