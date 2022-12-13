@@ -18,7 +18,7 @@ import About from "./routes/About";
 // function that calls either login or logout
 
 // login function
-
+/*
 const login = async ({ request }) => {
   // do I add my hook here?
   const fd = await request.formData();
@@ -39,6 +39,12 @@ const login = async ({ request }) => {
 
   return redirect(`${loginUser.id}/game`);
 };
+*/
+/*
+const logout = () => {
+  return redirect("/");
+};
+*/
 
 // logout function
 
@@ -47,7 +53,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <Error />,
-    action: login,
     children: [
       {
         path: "register",
