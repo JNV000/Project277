@@ -31,7 +31,7 @@ const login = async ({ request }) => {
 
   // console.log(user);
   // console.log(user.id);
-  // TODO: Provide user data to hook reducer/useLogin
+  // TODO: do without second apiService fetch
   // setUser(loginUser); // test this
 
   // redirect to game with user id
