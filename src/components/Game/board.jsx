@@ -6,13 +6,18 @@ import Square from "./square";
 export default function Board({ map, rows, cols }) {
   // TODO: use Reducer to get click function to pass to square
   return (
-    <div className={`container grid w-96 grid-cols-${cols}`}>
+    <div
+      className={`container grid w-auto grid-cols-${String(
+        cols
+      )} grid-rows-${String(rows)}`}
+    >
       {map.map((row, rIndex) =>
         row.map((crntRoom, cIndex) => (
           <Square
             room={crntRoom}
             key={`${rIndex}-${cIndex}`}
             id={`${rIndex}-${cIndex}`}
+            marker="🚪"
           />
         ))
       )}
@@ -27,3 +32,18 @@ Board.propTypes = {
   rows: PropTypes.number.isRequired,
   cols: PropTypes.number.isRequired,
 };
+
+/*
+<Square
+            room={crntRoom}
+            key={`${rIndex}-${cIndex}`}
+            id={`${rIndex}-${cIndex}`}
+            marker="🚪"
+          />
+*/
+
+/*
+className={`container grid w-auto grid-cols-${String(
+        cols
+      )} grid-rows-${String(rows)}`}
+*/

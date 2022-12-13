@@ -8,7 +8,11 @@ export default function Square({ room, id, handleClick, marker }) {
   return (
     <button
       id={id}
-      className={room ? "bg-white h-20 w-20 border-2" : "bg-black h-20 w-20"}
+      className={
+        room
+          ? "bg-white h-20 w-20 border-2 col-span-1 row-span1 text-4xl"
+          : "bg-black h-20 w-20 col-span-1 row-span1"
+      }
       onClick={handleClick}
     >
       {marker}
