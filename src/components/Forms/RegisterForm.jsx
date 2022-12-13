@@ -26,10 +26,10 @@ const fields = [
   },
 ];
 
-export default function Registration({ onClick }) {
+export default function Registration({ handleClick }) {
   return (
     <form
-      onSubmit={onClick}
+      onSubmit={handleClick}
       className="w-max mx-auto h-fit flex flex-col gap-y-4 border p-8 rounded-md my-4 mt-4"
     >
       {fields.map((field) => (
@@ -47,5 +47,5 @@ export default function Registration({ onClick }) {
 }
 
 Registration.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
