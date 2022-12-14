@@ -1,8 +1,5 @@
 import PropTypes from "prop-types";
-import { isPartiallyEmittedExpression } from "typescript";
 import Square from "./square";
-
-// TODO: make dive to hold other divs, use props to create grid style based on number of rows and columns.
 
 export default function Board({
   map,
