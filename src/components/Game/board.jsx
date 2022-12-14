@@ -3,7 +3,14 @@ import Square from "./square";
 
 // TODO: make dive to hold other divs, use props to create grid style based on number of rows and columns.
 
-export default function Board({ map, rows, cols }) {
+export default function Board({
+  map,
+  playMark,
+  monsterMark,
+  doorMark,
+  rows,
+  cols,
+}) {
   /*
   I cannot explain why but putting the string literal in the
   but puttin the string literal directly into className causes
@@ -16,6 +23,10 @@ export default function Board({ map, rows, cols }) {
     return boardClass;
   }
 
+  function getMarker(crntRow, crntCol) {
+    // compare to player, monster, and door location
+  }
+
   return (
     <div className={makeBoardClass()}>
       {map.map((row, rIndex) =>
@@ -24,7 +35,7 @@ export default function Board({ map, rows, cols }) {
             room={crntRoom}
             key={`${rIndex}-${cIndex}`}
             id={`${rIndex}-${cIndex}`}
-            marker="🚪"
+            marker={getMarker(rIndex, cIndex)}
           />
         ))
       )}
@@ -38,6 +49,9 @@ Board.propTypes = {
   map: PropTypes.array.isRequired,
   rows: PropTypes.number.isRequired,
   cols: PropTypes.number.isRequired,
+  playMark: PropTypes.array.isRequired,
+  monsterMark: PropTypes.array.isRequired,
+  doorMark: PropTypes.array.isRequired,
 };
 
 /*
