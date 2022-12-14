@@ -7,6 +7,7 @@ export default function Square({ room, id, handleClick, marker }) {
 
   return (
     <button
+      type="button"
       id={id}
       className={
         room

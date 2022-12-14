@@ -13,7 +13,6 @@ export default function Game() {
     // pass the form into FormData
     const fd = new FormData(e.target);
     const newGame = Object.fromEntries(fd);
-    console.log(newGame);
     startGame(newGame);
   }
 
