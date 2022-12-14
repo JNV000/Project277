@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function Root() {
   // login/logout will be on left side, other components are children displayed on the wider left part of screen
   // since hooks have to be called from function components I may have to log in from here.
-  const { user, game, setUser, makeMove, resetGame } = useGame();
+  const { user, setUser } = useGame();
   // const submit = useSubmit();
   const navigate = useNavigate();
 
@@ -23,13 +23,15 @@ export default function Root() {
 
     // call apiService.login
     const loginUser = await apiService.getUser(input.email, input.password);
-    // TODO: check for incorrect credentials and inform user
-    setUser(loginUser); // test this
-
-    // redirect to game with user id
-    // submit(e.target, { method: "post" });
-    // navigate works better here, don't have to fetch a second time
-    navigate(`${loginUser.id}/game`);
+    // TODO: check for incorrect credentials and inform userc
+    console.log(loginUser);
+    if (loginUser) {
+      setUser(loginUser); // test this
+      // redirect to game with user id
+      // submit(e.target, { method: "post" });
+      // navigate works better here, don't have to fetch a second time
+      navigate(`${loginUser.id}/game`);
+    } else alert("Invalid email or password!");
   }
 
   return (
