@@ -36,15 +36,17 @@ export default function Root() {
   return (
     // reducer/hook will be used to either Login or Logout Button
     <main className="flex h-screen gap-x-4">
-      <div className="w-1/5 bg-blue-600 h-screen text-white">
-        <h1>Hello World!</h1>
+      <div className="w-1/6 min-w-fit bg-blue-600 h-screen text-center text-white">
+        <h1 className="pt-5 text-xl">Hello World!</h1>
         {user ? (
           <LogoutBtn first={user.fName} last={user.lName} />
         ) : (
           <LoginForm handleSubmit={loginAction} />
         )}
       </div>
-      <Outlet />
+      <div className="align-start ml-11 mt-5">
+        <Outlet />
+      </div>
     </main>
   );
 }

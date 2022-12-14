@@ -22,7 +22,7 @@ export default function LoginForm({ handleSubmit }) {
   return (
     <>
       <Form
-        className="w-max mx-auto flex flex-col gap-y-4 border p-8 rounded-md my-4 mt-4"
+        className="w-max mx-auto flex flex-col gap-y-4 border p-7 rounded-md my-4 mt-4 bg-black"
         onSubmit={handleSubmit}
       >
         {fields.map((field) => (
@@ -37,14 +37,14 @@ export default function LoginForm({ handleSubmit }) {
         </button>
         <Link
           to={`/register`}
-          className="button underline align-middle text-center text-white hover:text-gray-500"
+          className="button underline align-middle text-center text-white hover:text-gray-300"
         >
           Create Account
         </Link>
       </Form>
       <Link
         to={`/about`}
-        className="button underline ml-4 text-white hover:text-gray-500"
+        className="button underline ml-4 text-white hover:text-gray-300"
       >
         About Page
       </Link>
