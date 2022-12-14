@@ -24,6 +24,9 @@ export default function Game() {
           map={game.map}
           rows={parseInt(game.rows)}
           cols={parseInt(game.columns)}
+          playMark={game.player}
+          monsterMark={game.monster}
+          doorMark={game.door}
         />
       ) : (
         <GameForm handleSubmit={createGame} />

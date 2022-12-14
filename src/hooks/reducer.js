@@ -29,10 +29,14 @@ export default function reducer(state, action) {
     }
     case "new_game": {
       // make a new game object set to user info attached to the action
+      const mapData = makeMap(action.game.rows, action.game.columns);
       const newGame = {
         rows: action.game.rows,
         columns: action.game.columns,
-        map: makeMap(action.game.rows, action.game.columns),
+        map: mapData.map,
+        player: mapData.playerLoc,
+        monster: mapData.monsterLoc,
+        door: mapData.doorLoc,
         turns: 0,
         cleared: 0,
       };
