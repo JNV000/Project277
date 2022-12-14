@@ -11,6 +11,7 @@ export default function Board({
   doorMark,
   rows,
   cols,
+  clickFunction,
 }) {
   /*
   I cannot explain why but putting the string literal in the
@@ -26,9 +27,6 @@ export default function Board({
 
   function getMarker(crntRow, crntCol) {
     // compare to player, monster, and door location
-    console.log(playMark);
-    console.log(monsterMark);
-    console.log(doorMark);
     if (crntRow === playMark[0] && crntCol === playMark[1]) {
       return "X";
     }
@@ -41,8 +39,9 @@ export default function Board({
     return "";
   }
   // <div className={makeBoardClass()}>
+  // made grid class static for easier testing.
   return (
-    <div className="container grid w-auto grid-cols-3 grid-rows-3">
+    <div className="container grid w-auto grid-cols-4 grid-rows-4">
       {map.map((row, rIndex) =>
         row.map((crntRoom, cIndex) => (
           <Square
@@ -50,6 +49,7 @@ export default function Board({
             key={`${rIndex}-${cIndex}`}
             id={`${rIndex}-${cIndex}`}
             marker={getMarker(rIndex, cIndex)}
+            handleClick={clickFunction}
           />
         ))
       )}
@@ -66,6 +66,7 @@ Board.propTypes = {
   playMark: PropTypes.array.isRequired,
   monsterMark: PropTypes.array.isRequired,
   doorMark: PropTypes.array.isRequired,
+  clickFunction: PropTypes.func.isRequired,
 };
 
 /*

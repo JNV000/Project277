@@ -6,7 +6,7 @@ import Board from "../components/game/board";
 
 export default function Game() {
   // state for game
-  const { user, game, startGame, makeMove, resetGame } = useGame();
+  const { game, startGame, makeMove, resetGame } = useGame();
   // if there is a game in the state load the board, else create one
   function createGame(e) {
     e.preventDefault();
@@ -18,16 +18,20 @@ export default function Game() {
   }
 
   return (
-    <div className="content-center pt-3">
+    <div className="content-center justify-center pl-5 pt-5">
       {game ? (
-        <Board
-          map={game.map}
-          rows={parseInt(game.rows)}
-          cols={parseInt(game.columns)}
-          playMark={game.player}
-          monsterMark={game.monster}
-          doorMark={game.door}
-        />
+        <div className="  border-4">
+          <p>{`Turns Taken: ${game.turns}, Maps Cleared: ${game.cleared}`}</p>
+          <Board
+            map={game.map}
+            rows={parseInt(game.rows)}
+            cols={parseInt(game.columns)}
+            playMark={game.player}
+            monsterMark={game.monster}
+            doorMark={game.door}
+            clickFunction={makeMove}
+          />
+        </div>
       ) : (
         <GameForm handleSubmit={createGame} />
       )}
