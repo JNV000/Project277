@@ -9,7 +9,7 @@ const fields = [
     label: "Rows",
     type: "number",
     minVal: 3,
-    maxVal: 7,
+    maxVal: 6,
     isReq: true,
   },
   {
