@@ -22,10 +22,8 @@ export default function Root() {
 
     // call apiService.login
     const loginUser = await apiService.getUser(input.email, input.password);
-    // TODO: check for incorrect credentials and inform userc
-    console.log(loginUser);
     if (loginUser) {
-      setUser(loginUser); // test this
+      setUser(loginUser);
       // redirect to game with user id
       // submit(e.target, { method: "post" });
       // navigate works better here, don't have to fetch a second time

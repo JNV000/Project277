@@ -21,7 +21,7 @@ export default function Game() {
     <div className="content-center justify-center pl-5 pt-5">
       {game ? (
         <>
-          <div className="  border-4">
+          <div className="align-middle text-center border-4">
             <p>{`Turns Taken: ${game.turns}, Maps Cleared: ${game.cleared}`}</p>
             <Board
               map={game.map}
@@ -34,7 +34,7 @@ export default function Game() {
             />
           </div>
           <button
-            className="px-4 py-2 rounded bg-blue-500 text-white"
+            className="px-4 py-2 rounded mt-1 bg-blue-500 text-white"
             onClick={resetGame}
           >
             End Game
