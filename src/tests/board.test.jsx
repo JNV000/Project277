@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Board from "../components/board";
+import Board from "../components/game/board";
 import makeMap from "../utils/makeMap";
 
 it("renders a map", () => {
@@ -9,7 +9,16 @@ it("renders a map", () => {
   const testMap = makeMap(x, y);
 
   // render board
-  render(<Board map={testMap} rows={x} cols={y} />);
+  render(
+    <Board
+      map={testMap.map}
+      rows={x}
+      cols={y}
+      playMark={testMap.playerLoc}
+      monsterMark={testMap.monsterLoc}
+      doorMark={testMap.doorLoc}
+    />
+  );
 
   // get squares from screen
   const squares = screen.getAllByRole("button");
