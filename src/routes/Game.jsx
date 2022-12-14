@@ -20,18 +20,26 @@ export default function Game() {
   return (
     <div className="content-center justify-center pl-5 pt-5">
       {game ? (
-        <div className="  border-4">
-          <p>{`Turns Taken: ${game.turns}, Maps Cleared: ${game.cleared}`}</p>
-          <Board
-            map={game.map}
-            rows={parseInt(game.rows)}
-            cols={parseInt(game.columns)}
-            playMark={game.player}
-            monsterMark={game.monster}
-            doorMark={game.door}
-            clickFunction={makeMove}
-          />
-        </div>
+        <>
+          <div className="  border-4">
+            <p>{`Turns Taken: ${game.turns}, Maps Cleared: ${game.cleared}`}</p>
+            <Board
+              map={game.map}
+              rows={parseInt(game.rows)}
+              cols={parseInt(game.columns)}
+              playMark={game.player}
+              monsterMark={game.monster}
+              doorMark={game.door}
+              clickFunction={makeMove}
+            />
+          </div>
+          <button
+            className="px-4 py-2 rounded bg-blue-500 text-white"
+            onClick={resetGame}
+          >
+            End Game
+          </button>
+        </>
       ) : (
         <GameForm handleSubmit={createGame} />
       )}

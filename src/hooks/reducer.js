@@ -196,6 +196,12 @@ export default function reducer(state, action) {
         };
       }
     }
+    case "reset_game": {
+      return {
+        user: state.user,
+        game: null,
+      };
+    }
     case "user_logout": {
       return {
         // just ditch everyting
