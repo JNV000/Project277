@@ -6,11 +6,11 @@ export default function About() {
         Project for SWIC CIS 277, Fall 2022
       </h1>
       <p className="mt-5">
-        Mock user Login system using JSON server adn React routing, and a simple
-        game making use of components and a reducer. The game has the user
-        moving through a series of 2D grid based maps by clicking on squares.
-        The user tries to get the 'X' to the door(🚪) without running into the
-        monster (💀).
+        A project featuring a mock user Login system using JSON server adn React
+        routing, and a simple game making use of components and a reducer. The
+        game has the user moving through a series of 2D grid based maps by
+        clicking on squares. The user tries to get the 'X' to the door(🚪)
+        without running into the monster (💀).
       </p>
       <h2 className="text-2xl mt-3">How to Play</h2>
       <ul className="list-disc">
