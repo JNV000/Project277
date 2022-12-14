@@ -49,8 +49,6 @@ export default function Board({
   );
 }
 
-// TODO: make integration test to check number of squares
-
 Board.propTypes = {
   map: PropTypes.array.isRequired,
   rows: PropTypes.number.isRequired,
