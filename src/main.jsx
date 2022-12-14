@@ -11,42 +11,29 @@ import Root from "./routes/Root";
 import Register from "./routes/Register";
 import Game from "./routes/Game";
 import Error from "./routes/Error";
-import apiService from "./services/api.service";
+// import apiService from "./services/api.service";
 import About from "./routes/About";
-// import useGame from "./hooks/useGame";
 
-// function that calls either login or logout
-
-// login function
-/*
+/* // login function
 const login = async ({ request }) => {
   // do I add my hook here?
   const fd = await request.formData();
-
   // get email and password
   const input = Object.fromEntries(fd);
   // console.log(input);
-
   // call apiService.login
   const loginUser = await apiService.getUser(input.email, input.password);
-
-  // console.log(user);
-  // console.log(user.id);
   // TODO: do without second apiService fetch
-  // setUser(loginUser); // test this
-
   // redirect to game with user id
-
   return redirect(`${loginUser.id}/game`);
 };
 */
-/*
-const logout = () => {
-  return redirect("/");
-};
-*/
 
-// logout function
+/*
+ In hindsight all login and user related
+ actions should have been handled by routing
+ and params. The reducer should have been just for the game.
+*/
 
 const router = createBrowserRouter([
   {
@@ -63,7 +50,7 @@ const router = createBrowserRouter([
         element: <Game />,
       },
       {
-        path: ":about", // make make a second version that has :id
+        path: ":about",
         element: <About />,
       },
     ],
