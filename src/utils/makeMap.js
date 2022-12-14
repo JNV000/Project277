@@ -53,7 +53,7 @@ export default function makeMap(row, col) {
     doorLoc[1] = Math.floor(Math.random() * col);
   } while (
     (doorLoc[0] === playerLoc[0] && doorLoc[1] === playerLoc[1]) ||
-    map[monsterLoc[0]][monsterLoc[1]] === false
+    map[doorLoc[0]][doorLoc[1]] === false
   );
   // make sure player does not start on the door
 
