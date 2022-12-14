@@ -40,7 +40,6 @@ export default function reducer(state, action) {
         turns: 0,
         cleared: 0,
       };
-      console.log(newGame);
       return {
         // everthing except the user should be null
         user: state.user,
@@ -54,8 +53,6 @@ export default function reducer(state, action) {
       const colClick = parseInt(action.index.charAt(2));
       // verify that room is next to current player location
       // left, down, right, up
-      console.log(rowClick, colClick);
-      console.log(state.game.player[0]);
       if (
         (rowClick === state.game.player[0] &&
           colClick === state.game.player[1] - 1) ||
