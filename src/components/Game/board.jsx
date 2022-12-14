@@ -14,17 +14,12 @@ export default function Board({
   clickFunction,
 }) {
   /*
-  I cannot explain why but putting the string literal in the
-  but puttin the string literal directly into className causes
-  the grid to not work.
-  */
+  // I probably don't need this as a separate function, but it makes the code more readable
   function makeBoardClass() {
-    const boardClass = `container grid w-auto grid-cols-${String(
-      cols
-    )} grid-rows-${String(rows)}`;
+    const boardClass = `container grid w-auto grid-cols-${cols} grid-rows-${rows}`;
     return boardClass;
   }
-
+  */
   function getMarker(crntRow, crntCol) {
     // compare to player, monster, and door location
     if (crntRow === playMark[0] && crntCol === playMark[1]) {
@@ -41,7 +36,7 @@ export default function Board({
   // <div className={makeBoardClass()}>
   // made grid class static for easier testing.
   return (
-    <div className="container grid w-auto grid-cols-4 grid-rows-4">
+    <div className={`container grid grid-cols-${cols} grid-rows-${rows}`}>
       {map.map((row, rIndex) =>
         row.map((crntRoom, cIndex) => (
           <Square
