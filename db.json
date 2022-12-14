@@ -13,6 +13,13 @@
       "email": "aaa@aaa.com",
       "password": "12345password",
       "id": 2
+    },
+    {
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "test@test.com",
+      "password": "testPASS123",
+      "id": 3
     }
   ]
 }
