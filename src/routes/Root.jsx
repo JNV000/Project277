@@ -38,10 +38,6 @@ export default function Root() {
     <main className="flex h-screen gap-x-4">
       <div className="w-1/5 bg-blue-600 h-screen text-white">
         <h1>Hello World!</h1>
-        <p>
-          Login form goes here. After logging in/picking user logout button will
-          go here instead.
-        </p>
         {user ? (
           <LogoutBtn first={user.fName} last={user.lName} />
         ) : (
