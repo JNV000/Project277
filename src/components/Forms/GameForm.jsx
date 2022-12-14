@@ -2,20 +2,23 @@ import Input from "./Input"; // see import.js in forms
 import { Form } from "react-router-dom";
 import PropTypes from "prop-types";
 
+// lcoking grid size to 4 for testing
 const fields = [
   {
     id: "rows",
     label: "Rows",
     type: "number",
-    minVal: 3,
-    maxVal: 6,
+    minVal: 4,
+    maxVal: 4,
+    isReq: true,
   },
   {
     id: "columns",
     label: "Columns",
     type: "number",
-    minVal: 3,
-    maxVal: 6,
+    minVal: 4,
+    maxVal: 4,
+    isReq: true,
   },
 ];
 
@@ -38,6 +41,7 @@ export default function GameForm({ handleSubmit }) {
         >
           Start Game
         </button>
+        <p>Map size locked to 4x4 for testing</p>
       </Form>
     </>
   );

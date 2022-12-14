@@ -80,7 +80,20 @@ export default function reducer(state, action) {
           cleared: state.game.cleared,
         };
         // check if new player location is on the door or monster
+        // check for monster
         if (
+          state.game.monster[0] === rowClick &&
+          state.game.monster[1] === colClick
+        ) {
+          // end game
+          alert("Game Over! You got too close to the monster.");
+          return {
+            // everthing except the user should be null
+            user: state.user,
+            game: null,
+          };
+        } else if (
+          // check for door
           state.game.door[0] === rowClick &&
           state.game.door[1] === colClick
         ) {
@@ -93,86 +106,83 @@ export default function reducer(state, action) {
           nextGameState.monster = nextMap.monsterLoc;
           nextGameState.door = nextMap.doorLoc;
           nextGameState.map = nextMap.map;
-        }
-        if (
-          state.game.monster[0] === rowClick &&
-          state.game.monster[1] === colClick
-        ) {
-          // end game
-          alert("Game Over! You got too close to the monster.");
-          return {
-            // everthing except the user should be null
-            user: state.user,
-            game: null,
-          };
-        }
-        // get monsters next location and check for game over again.
-        const monsterMove = Math.floor(Math.random() * 4);
-        switch (monsterMove) {
-          case 0: {
-            // move up?
-            if (
-              state.game.monster[0] - 1 >= 0 &&
-              state.game.map[state.game.monster[0] - 1][state.game.monster[1]]
-            ) {
-              nextGameState.monster = [
-                state.game.monster[0] - 1,
-                state.game.monster[1],
-              ];
+        } else {
+          // get monsters next location and check for game over again.
+          const monsterMove = Math.floor(Math.random() * 4);
+          switch (monsterMove) {
+            case 0: {
+              // move up?
+              if (
+                state.game.monster[0] - 1 >= 0 &&
+                state.game.map[state.game.monster[0] - 1][state.game.monster[1]]
+              ) {
+                nextGameState.monster = [
+                  state.game.monster[0] - 1,
+                  state.game.monster[1],
+                ];
+              }
+              break;
             }
-            break;
-          }
-          case 1: {
-            // move down
-            if (
-              state.game.monster[0] + 1 < state.game.rows &&
-              state.game.map[state.game.monster[0] + 1][state.game.monster[1]]
-            ) {
-              nextGameState.monster = [
-                state.game.monster[0] + 1,
-                state.game.monster[1],
-              ];
+            case 1: {
+              // move down
+              if (
+                state.game.monster[0] + 1 < state.game.rows &&
+                state.game.map[state.game.monster[0] + 1][state.game.monster[1]]
+              ) {
+                nextGameState.monster = [
+                  state.game.monster[0] + 1,
+                  state.game.monster[1],
+                ];
+              }
+              break;
             }
-            break;
-          }
-          case 2: {
-            // move left
-            if (
-              state.game.monster[1] - 1 >= 0 &&
-              state.game.map[state.game.monster[0]][state.game.monster[1] - 1]
-            ) {
-              nextGameState.monster = [
-                state.game.monster[0],
-                state.game.monster[1] - 1,
-              ];
+            case 2: {
+              // move left
+              if (
+                state.game.monster[1] - 1 >= 0 &&
+                state.game.map[state.game.monster[0]][state.game.monster[1] - 1]
+              ) {
+                nextGameState.monster = [
+                  state.game.monster[0],
+                  state.game.monster[1] - 1,
+                ];
+              }
+              break;
             }
-            break;
-          }
-          case 3: {
-            // move right
-            if (
-              state.game.monster[1] + 1 < state.game.columns &&
-              state.game.map[state.game.monster[0]][state.game.monster[1] + 1]
-            ) {
-              nextGameState.monster = [
-                state.game.monster[0],
-                state.game.monster[1] + 1,
-              ];
+            case 3: {
+              // move right
+              if (
+                state.game.monster[1] + 1 < state.game.columns &&
+                state.game.map[state.game.monster[0]][state.game.monster[1] + 1]
+              ) {
+                nextGameState.monster = [
+                  state.game.monster[0],
+                  state.game.monster[1] + 1,
+                ];
+              }
             }
+            // if not then its ok if the monster doesn't move
           }
-          // if not then its ok if the monster doesn't move
-        }
-        if (
-          nextGameState.monster[0] === rowClick &&
-          nextGameState.monster[1] === colClick
-        ) {
-          // end game
-          alert("Game Over! You got too close to the monster.");
-          return {
-            // everthing except the user should be null
-            user: state.user,
-            game: null,
-          };
+          // check monsters new location
+          if (
+            nextGameState.monster[0] === rowClick &&
+            nextGameState.monster[1] === colClick
+          ) {
+            // end game
+            alert("Game Over! You got too close to the monster.");
+            return {
+              // everthing except the user should be null
+              user: state.user,
+              game: null,
+            };
+            // this occasionally glitches for some reason.
+            /*
+            I think it might be a mix of react doing everything twice
+            and the random generator used. So the first time the monster moves
+            to the player, but the second time it goes somewhere else,
+            so the game continues despite receiving the alert.
+            */
+          }
         }
         return {
           user: state.user,
