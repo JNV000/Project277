@@ -1,6 +1,6 @@
 # React-Tailwind-Vitest
 
-This is a template for a React project using TailwindCSS and Vite/Vitest.
+A simple game with a mock login system using React. Note does not use cookies or store login information in the browser on refresh.
 
 ## Scripts
 
